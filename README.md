@@ -2,6 +2,8 @@
 
 `markdope` is an Obsidian community plugin that keeps notes as plain Markdown while rendering fenced YAML component blocks as richer React UI.
 
+The current MVP now uses real shadcn-style source components copied into the plugin codebase and styled through a Tailwind build pipeline adapted for Obsidian. The rendered block UI intentionally focuses on YAML-driven content rather than showing component metadata chrome.
+
 ## What v1 implements
 
 - Fenced YAML blocks using languages like `markdope` and `component`
@@ -12,6 +14,8 @@
 - Built-in official components:
   - `official.toggle`
   - `official.callout`
+  - `official.accordion`
+  - `official.carousel`
   - `official.timeline`
   - `official.steps`
   - `official.stats`
@@ -21,6 +25,8 @@
 - A vault folder structure for future component packs:
   - `markdope-components/official/toggle/`
   - `markdope-components/official/callout/`
+  - `markdope-components/official/accordion/`
+  - `markdope-components/official/carousel/`
   - `markdope-components/official/timeline/`
   - `markdope-components/official/steps/`
   - `markdope-components/official/stats/`
@@ -60,6 +66,12 @@ The code is intentionally split so the plugin stays extensible:
 
 - `src/preview/`
   Reading Mode renderer plus the shared block renderer used by Reading Mode and Live Preview processed blocks
+- `src/components/ui/`
+  copied/adapted shadcn source primitives such as card, badge, alert, switch, and separator
+- `src/lib/`
+  shared helpers such as the canonical `cn()` utility
+- `src/styles/`
+  Tailwind input used to compile the shipped `styles.css`
 - `src/yaml/`
   Fence discovery, YAML parsing, serialization, and patching
 - `src/registry/`
@@ -79,6 +91,8 @@ This repository intentionally ships a safe MVP first.
 
 Built-in official components are bundled with the plugin and rendered from trusted code. The vault-side `markdope-components/` folders currently contain documentation, schema notes, and examples, but they do **not** execute arbitrary React/TSX from the vault.
 
+The current built-in components compose copied/adapted shadcn source primitives inside the plugin bundle rather than executing anything from a remote registry at runtime.
+
 That tradeoff is deliberate:
 
 - arbitrary runtime loading of vault-side React/TypeScript is unsafe for a community-plugin v1
@@ -92,6 +106,8 @@ The folder structure is still designed so future community packs can fit cleanly
 - `Create markdope demo note`
 - `Insert Toggle block`
 - `Insert Callout block`
+- `Insert Accordion block`
+- `Insert Carousel block`
 - `Insert Timeline block`
 - `Insert Steps block`
 - `Insert Stats block`

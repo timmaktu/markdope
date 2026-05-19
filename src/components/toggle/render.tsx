@@ -1,29 +1,27 @@
 import type { ComponentRenderProps } from "../../registry/types";
+import { Card, CardContent } from "../ui/card";
+import { Switch } from "../ui/switch";
 import type { ToggleData } from "./defaults";
 import { buildToggleValuePatch } from "./visual-edit";
 
 export function ToggleRenderer({ data, onPatch }: ComponentRenderProps<ToggleData>) {
 	return (
-		<div className="markdope-toggle">
-			<div className="markdope-toggle__copy">
-				<div className="markdope-toggle__label">{data.label}</div>
-				{data.description ? (
-					<div className="markdope-toggle__description">{data.description}</div>
-				) : null}
-			</div>
-			<label className="markdope-toggle__switch" aria-label={data.label}>
-				<input
-					type="checkbox"
+		<Card className="gap-0">
+			<CardContent className="flex items-center justify-between gap-4">
+				<div className="space-y-1">
+					<div className="text-sm leading-none font-medium">{data.label}</div>
+					{data.description ? (
+						<div className="text-muted-foreground text-sm">{data.description}</div>
+					) : null}
+				</div>
+				<Switch
+					aria-label={data.label}
 					checked={data.value}
-					onChange={(event) => {
-						onPatch?.(buildToggleValuePatch(event.currentTarget.checked));
+					onCheckedChange={(checked) => {
+						onPatch?.(buildToggleValuePatch(checked));
 					}}
 				/>
-				<span className="markdope-toggle__track">
-					<span className="markdope-toggle__thumb" />
-				</span>
-			</label>
-		</div>
+			</CardContent>
+		</Card>
 	);
 }
-

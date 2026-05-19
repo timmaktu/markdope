@@ -1,6 +1,8 @@
 import type { ErrorInfo, ReactNode } from "react";
 import { Component } from "react";
 import type { ComponentPatch } from "../registry/types";
+import { Badge } from "../components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { MarkdopeBlockView } from "./markdope-block-view";
 import type { ResolvedMarkdopeBlock } from "./types";
 
@@ -35,16 +37,18 @@ export class SafeMarkdopeBlockView extends Component<
 	override render(): ReactNode {
 		if (this.state.errorMessage) {
 			return (
-				<div className="markdope-block markdope-block--fallback">
-					<div className="markdope-block__chrome">
-						<div className="markdope-block__meta">
-							<span className="markdope-block__badge">Render error</span>
-							<span className="markdope-block__label">markdope fallback</span>
-						</div>
-					</div>
-					<div className="markdope-block__fallback-copy">
-						{this.state.errorMessage}
-					</div>
+				<div className="markdope-ui">
+					<Card className="my-2">
+						<CardHeader className="gap-2">
+							<div className="flex flex-wrap items-center gap-2">
+								<Badge variant="destructive">Render error</Badge>
+								<CardTitle className="text-sm">markdope fallback</CardTitle>
+							</div>
+						</CardHeader>
+						<CardContent className="markdope-fallback-message">
+							{this.state.errorMessage}
+						</CardContent>
+					</Card>
 				</div>
 			);
 		}

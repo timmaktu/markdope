@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@source "../**/*.{ts,tsx}";
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+	--shadow-xs: 0 1px 2px color-mix(in srgb, black 9%, transparent);
+}
+
+:root {
+	--radius: 0.75rem;
+}
+
+@layer components {
+	.markdope-ui {
+		--background: oklch(1 0 0);
+		--foreground: oklch(0.145 0 0);
+		--card: oklch(1 0 0);
+		--card-foreground: oklch(0.145 0 0);
+		--popover: oklch(1 0 0);
+		--popover-foreground: oklch(0.145 0 0);
+		--primary: oklch(0.205 0 0);
+		--primary-foreground: oklch(0.985 0 0);
+		--secondary: oklch(0.97 0 0);
+		--secondary-foreground: oklch(0.205 0 0);
+		--muted: oklch(0.97 0 0);
+		--muted-foreground: oklch(0.556 0 0);
+		--accent: oklch(0.97 0 0);
+		--accent-foreground: oklch(0.205 0 0);
+		--destructive: oklch(0.577 0.245 27.325);
+		--border: oklch(0.922 0 0);
+		--input: oklch(0.922 0 0);
+		--ring: oklch(0.708 0 0);
+		color: var(--foreground);
+		font-family: var(--font-sans);
+	}
+
+	.theme-dark .markdope-ui {
+		--background: oklch(0.145 0 0);
+		--foreground: oklch(0.985 0 0);
+		--card: oklch(0.205 0 0);
+		--card-foreground: oklch(0.985 0 0);
+		--popover: oklch(0.205 0 0);
+		--popover-foreground: oklch(0.985 0 0);
+		--primary: oklch(0.922 0 0);
+		--primary-foreground: oklch(0.205 0 0);
+		--secondary: oklch(0.269 0 0);
+		--secondary-foreground: oklch(0.985 0 0);
+		--muted: oklch(0.269 0 0);
+		--muted-foreground: oklch(0.708 0 0);
+		--accent: oklch(0.269 0 0);
+		--accent-foreground: oklch(0.985 0 0);
+		--destructive: oklch(0.704 0.191 22.216);
+		--border: oklch(1 0 0 / 10%);
+		--input: oklch(1 0 0 / 15%);
+		--ring: oklch(0.556 0 0);
+	}
+
+	.theme-light .markdope-ui {
+		--background: oklch(1 0 0);
+		--foreground: oklch(0.145 0 0);
+		--card: oklch(1 0 0);
+		--card-foreground: oklch(0.145 0 0);
+		--popover: oklch(1 0 0);
+		--popover-foreground: oklch(0.145 0 0);
+		--primary: oklch(0.205 0 0);
+		--primary-foreground: oklch(0.985 0 0);
+		--secondary: oklch(0.97 0 0);
+		--secondary-foreground: oklch(0.205 0 0);
+		--muted: oklch(0.97 0 0);
+		--muted-foreground: oklch(0.556 0 0);
+		--accent: oklch(0.97 0 0);
+		--accent-foreground: oklch(0.205 0 0);
+		--destructive: oklch(0.577 0.245 27.325);
+		--border: oklch(0.922 0 0);
+		--input: oklch(0.922 0 0);
+		--ring: oklch(0.708 0 0);
+	}
+
+	.markdope-ui,
+	.markdope-ui * {
+		box-sizing: border-box;
+	}
+
+	.markdope-ui *,
+	.markdope-ui *::before,
+	.markdope-ui *::after {
+		border-color: var(--border);
+		outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+	}
+
+	.markdope-ui button[data-slot] {
+		appearance: none;
+		background-image: none;
+		background-repeat: no-repeat;
+		border-style: solid;
+		color: inherit;
+		font: inherit;
+		margin: 0;
+	}
+
+	.markdope-ui button[data-slot="accordion-trigger"] {
+		align-items: flex-start !important;
+		background: transparent !important;
+		border-width: 0 !important;
+		box-shadow: none !important;
+		border-radius: 0 !important;
+		display: flex !important;
+		justify-content: space-between !important;
+		text-align: left !important;
+		width: 100% !important;
+		padding-inline: 0 !important;
+	}
+
+	.markdope-ui button[data-slot="carousel-previous"],
+	.markdope-ui button[data-slot="carousel-next"] {
+		align-items: center !important;
+		border-radius: 9999px !important;
+		display: inline-flex !important;
+		justify-content: center !important;
+		line-height: 1 !important;
+		min-height: 2rem !important;
+		min-width: 2rem !important;
+		padding: 0 !important;
+	}
+
+	.markdope-ui [data-slot="switch"] {
+		background-image: none !important;
+		border-radius: 9999px !important;
+		border-width: 0 !important;
+		box-shadow: none !important;
+		display: inline-flex !important;
+		flex-shrink: 0;
+		justify-content: flex-start !important;
+		align-items: center !important;
+		min-height: 0 !important;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		line-height: 1;
+		position: relative;
+	}
+
+	.markdope-ui [data-slot="switch"][data-size="default"] {
+		width: 2rem !important;
+		min-width: 2rem !important;
+		max-width: 2rem !important;
+		height: 1.15rem !important;
+		min-height: 1.15rem !important;
+		max-height: 1.15rem !important;
+	}
+
+	.markdope-ui [data-slot="switch"][data-size="sm"] {
+		width: 1.5rem !important;
+		min-width: 1.5rem !important;
+		max-width: 1.5rem !important;
+		height: 0.875rem !important;
+		min-height: 0.875rem !important;
+		max-height: 0.875rem !important;
+	}
+
+	.markdope-ui [data-slot="switch"][data-state="checked"] {
+		background-color: var(--primary) !important;
+	}
+
+	.markdope-ui [data-slot="switch"][data-state="unchecked"] {
+		background-color: color-mix(in srgb, var(--foreground) 24%, transparent) !important;
+	}
+
+	.theme-dark .markdope-ui [data-slot="switch"][data-state="unchecked"] {
+		background-color: color-mix(in srgb, var(--foreground) 24%, transparent) !important;
+	}
+
+	.markdope-ui [data-slot="switch-thumb"] {
+		background-color: var(--background);
+		flex-shrink: 0;
+		left: 1px;
+		position: absolute;
+		box-shadow: 0 1px 2px color-mix(in srgb, black 12%, transparent);
+		top: 1px;
+		transform: translateX(0) !important;
+	}
+
+	.markdope-ui [data-slot="switch"][data-size="default"] [data-slot="switch-thumb"] {
+		width: 1rem !important;
+		height: 1rem !important;
+	}
+
+	.markdope-ui [data-slot="switch"][data-size="sm"] [data-slot="switch-thumb"] {
+		width: 0.75rem !important;
+		height: 0.75rem !important;
+	}
+
+	.theme-dark .markdope-ui [data-slot="switch"][data-state="checked"] [data-slot="switch-thumb"] {
+		background-color: var(--primary-foreground);
+	}
+
+	.theme-dark .markdope-ui [data-slot="switch"][data-state="unchecked"] [data-slot="switch-thumb"] {
+		background-color: var(--foreground);
+	}
+
+	.markdope-ui [data-slot="switch"][data-size="default"][data-state="checked"] [data-slot="switch-thumb"] {
+		transform: translateX(0.875rem) !important;
+	}
+
+	.markdope-ui [data-slot="switch"][data-size="sm"][data-state="checked"] [data-slot="switch-thumb"] {
+		transform: translateX(0.625rem) !important;
+	}
+
+	.markdope-ui [data-slot="card"] {
+		background-color: var(--card);
+		color: var(--card-foreground);
+	}
+}
+
+.markdope-raw-code,
+.markdope-fallback-pre {
+	@apply bg-muted overflow-x-auto rounded-lg border p-4 text-sm;
+}
+
+.markdope-fallback-message {
+	@apply text-muted-foreground text-sm whitespace-pre-wrap;
+}

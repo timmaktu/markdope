@@ -19,6 +19,60 @@ tone: "info"
 ```
 
 ```markdope
+component: official.accordion
+version: 1
+title: "Product Information"
+type: "single"
+defaultOpen:
+  - "item-1"
+items:
+  - title: "What does markdope preserve?"
+    content: "Your note remains plain Markdown, and invalid YAML never silently destroys source content."
+  - title: "Why use shadcn components here?"
+    content: "They give us a realistic target for future user-imported component support."
+  - title: "Can I still edit the raw block?"
+    content: "Yes. In Live Preview, placing the cursor in the fence reveals the original YAML."
+```
+
+```markdope
+component: official.carousel
+version: 1
+title: "Feature Highlights"
+items:
+  - kicker: "Markdown-first"
+    title: "Readable source notes"
+    body: "Keep content understandable to both humans and AI without MDX or JSX in the note body."
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+    imageAlt: "Desk workspace with laptop, notebook, and coffee mug."
+  - kicker: "Live Preview"
+    title: "Source when focused"
+    body: "When your cursor enters the fence, the raw YAML becomes editable source again."
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80"
+    imageAlt: "Open notebook and desk setup viewed from above."
+  - kicker: "Safe MVP"
+    title: "Trusted built-ins first"
+    body: "Official components are bundled safely while the future pack system stays extensible."
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80"
+    imageAlt: "Team working together around a table."
+```
+
+```markdope
+component: official.carousel
+version: 1
+title: "Workspace Gallery"
+items:
+  - title: "Desk setup"
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+    imageAlt: "Desk workspace with laptop, notebook, and coffee mug."
+  - title: "Planning session"
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80"
+    imageAlt: "Open notebook and desk setup viewed from above."
+  - title: "Team review"
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80"
+    imageAlt: "Team collaborating around a table."
+```
+
+```markdope
 component: official.timeline
 version: 1
 title: "Roadmap"
@@ -59,8 +113,8 @@ version: 1
 title: "Launch metrics"
 items:
   - label: "Official components"
-    value: 5
-    helper: "Toggle, callout, timeline, steps, stats."
+    value: 7
+    helper: "Toggle, callout, accordion, carousel, timeline, steps, and stats."
   - label: "Visual editors"
     value: 1
     helper: "Toggle writes back to YAML."

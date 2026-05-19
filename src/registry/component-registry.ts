@@ -1,4 +1,6 @@
+import { accordionComponent } from "../components/accordion";
 import type { ComponentDefinition } from "./types";
+import { carouselComponent } from "../components/carousel";
 import { calloutComponent } from "../components/callout";
 import { statsComponent } from "../components/stats";
 import { stepsComponent } from "../components/steps";
@@ -31,6 +33,8 @@ export function createOfficialComponentRegistry(): MarkdopeComponentRegistry {
 	return new MarkdopeComponentRegistry([
 		toggleComponent,
 		calloutComponent,
+		accordionComponent,
+		carouselComponent,
 		timelineComponent,
 		stepsComponent,
 		statsComponent

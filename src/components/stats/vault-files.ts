@@ -31,7 +31,7 @@ export function getStatsVaultFiles(): VaultComponentFile[] {
 				"title: Launch metrics",
 				"items:",
 				"  - label: Blocks rendered",
-				"    value: 5",
+				"    value: 7",
 				"  - label: Editable components",
 				"    value: 1",
 				"```"
@@ -39,4 +39,3 @@ export function getStatsVaultFiles(): VaultComponentFile[] {
 		}
 	];
 }
-

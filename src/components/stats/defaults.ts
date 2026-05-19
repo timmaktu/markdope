@@ -14,7 +14,7 @@ export const statsDefaults: StatsData = {
 	items: [
 		{
 			label: "Blocks rendered",
-			value: 5,
+			value: 7,
 			helper: "Official components in this starter pack."
 		},
 		{
@@ -29,4 +29,3 @@ export const statsDefaults: StatsData = {
 		}
 	]
 };
-
