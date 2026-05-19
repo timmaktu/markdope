@@ -1,0 +1,10 @@
+{
+  "id": "markdope",
+  "name": "markdope",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Render fenced YAML component blocks as rich React components in Obsidian.",
+  "author": "markdope contributors",
+  "isDesktopOnly": false
+}
+
